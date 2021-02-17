@@ -1,6 +1,6 @@
-package com.natritmeyer.examplecucumberjvmspringframework.glue;
+package hainv.demo.glue;
 
-import com.natritmeyer.examplecucumberjvmspringframework.config.Config;
+import hainv.demo.config.Config;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 

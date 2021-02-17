@@ -1,9 +1,9 @@
-package com.natritmeyer.examplecucumberjvmspringframework.config;
+package hainv.demo.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 @PropertySource("application.properties")
-@ComponentScan("com.natritmeyer.examplecucumberjvmspringframework")
+@ComponentScan("hainv.demo")
 public class Config {
 }
