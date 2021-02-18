@@ -42,16 +42,16 @@ optimal arrangement - that'll be determined by your own unique requirements.
 
 ## Usage
 
-To run the feature with a "desktop browser":
+To run the feature with a "android":
 
 ```sh
-mvn clean verify -Dspring.profiles.active=desktop
+mvn clean verify -Dspring.profiles.active=android
 ```
 
-To run the feature with a "mobile browser":
+To run the feature with a "ios":
 
 ```sh
-mvn clean verify -Dspring.profiles.active=mobile
+mvn clean verify -Dspring.profiles.active=ios
 ```
 
 ## Tested with...

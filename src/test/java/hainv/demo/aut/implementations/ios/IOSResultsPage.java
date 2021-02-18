@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Profile("ios")
-public class IOSResultsPage implements ResultsPage {
+public class IOSResultsPage implements ResultsPage  {
     private final WebDriver driver;
 
     @Autowired

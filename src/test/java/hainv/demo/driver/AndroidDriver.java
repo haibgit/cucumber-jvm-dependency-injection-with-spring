@@ -1,6 +1,8 @@
 package hainv.demo.driver;
 
+import hainv.demo.config.Config;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,26 +16,27 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class AndroidDriver {
-    @Value("${browser.mobile.width}")
-    private int mobileWidth;
+    @Value("${android.app}")
+    private String androidApp;
 
-    @Value("${browser.mobile.height}")
-    private int mobileHeight;
+    @Value("${android.version}")
+    private String version;
 
-    @Value("${browser.mobile.useragent}")
-    private String userAgent;
-
+    @Value("${android.deviceName}")
+    private String devices;
 
     @Bean
     @Profile("android")
     public AppiumDriver getDriver() throws MalformedURLException {
-
+        String app = Config.getPathApp() + androidApp;
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "platform");
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "");
-        capabilities.setCapability(MobileCapabilityType.APP, "");
-        AppiumDriver driver = new AppiumDriver(new URL("http://localhost:4723/wd/hub"), capabilities);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, devices);
+        capabilities.setCapability(MobileCapabilityType.APP, app);
+        AppiumDriver driver = new AppiumDriver<AndroidElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;

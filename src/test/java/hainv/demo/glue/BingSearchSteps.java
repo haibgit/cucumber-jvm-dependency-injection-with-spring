@@ -4,6 +4,7 @@ import hainv.demo.aut.model.CaculatorHomePage;
 import hainv.demo.aut.model.ResultsPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BingSearchSteps {
@@ -23,6 +24,7 @@ public class BingSearchSteps {
 
     @Then("I see result is {int}")
     public void iSeeResultIs(int result) {
+        Assert.assertEquals(resultsPage.getResult(), String.valueOf(result));
 
     }
 
